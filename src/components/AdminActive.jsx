@@ -19,7 +19,7 @@ function AdminActive({setIsAdmin}) {
       password: formRef.current.password.value,
     }
 
-    fetch(`${process.env.NEXT_API}/notion`,{
+    fetch(`${process.env.NEXT_API}/api/notion`,{
       method: 'POST',
       headers: {
         'content' : 'application/json'
