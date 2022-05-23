@@ -44,7 +44,7 @@ function AdminActive({setIsAdmin}) {
       .catch(e => {
         setAlert({
           value: true,
-          text: 'Error de conexión'
+          text: 'Invalid id'
         })
       })
   }

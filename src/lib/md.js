@@ -41,6 +41,10 @@ export const createPageSlug = async (slug, id, password, direction) => {
   }
 
   const notion = await getNotionPage(id)
+  if(notion === null){
+    console.log('LOG:')
+    return false
+  }
 
   const href = direction === 'posts' ? '/' : '/projects'
 
