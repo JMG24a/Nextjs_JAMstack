@@ -3,12 +3,12 @@ import {Client} from '@notionhq/client';
 export const getNotionPage = async (id) => {
   const notion = new Client({auth: process.env.NOTION_API})
   const block = await notion.blocks.children.list({
-    block_id: process.env.NOTION_PAGE_ID,
+    block_id: id,
     page_size: 50,
   })
 
   const page = await notion.pages.retrieve({
-    page_id: process.env.NOTION_PAGE_ID,
+    page_id: id,
   })
 
   const notionPage = {

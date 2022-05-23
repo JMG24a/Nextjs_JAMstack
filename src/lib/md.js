@@ -41,11 +41,14 @@ export const createPageSlug = async (slug, id, password, direction) => {
   }
 
   const notion = await getNotionPage(id)
+
+  const href = direction === 'posts' ? '/' : '/projects'
+
   const createMDX = `---
 title: '${notion.page.title}'
 image: '${notion.page.cover}'
 ---
-<Back title='${notion.page.title}'/>
+<Back title='${notion.page.title}' href='${href}'/>
 ${notion.paragraph}
 `
 

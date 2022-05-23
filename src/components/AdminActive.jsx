@@ -19,9 +19,7 @@ function AdminActive({setIsAdmin}) {
       password: formRef.current.password.value,
     }
 
-    console.log('Data: ',data)
-
-    fetch('http://localhost:3001/api/notion',{
+    fetch('http://localhost:3000/api/notion',{
       method: 'POST',
       headers: {
         'content' : 'application/json'

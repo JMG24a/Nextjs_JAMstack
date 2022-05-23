@@ -17,7 +17,7 @@ export default function Contact() {
       body: formRef.current.body.value,
     }
 
-    fetch('http://localhost:3001/api/email',{
+    fetch('http://localhost:3000/api/email',{
     method: 'POST',
     headers: {
       'content' : 'application/json'

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { MDXRemote } from 'next-mdx-remote';
 import MDXComponents from '../../components/MDXComponent'
 import { getFileBySlug, getFiles } from '../../lib/md';
@@ -5,7 +6,6 @@ import { Container } from '../../styles/components/slug'
 
 export async function getStaticProps({ params }) {
   const { source, fromMatter } = await getFileBySlug(params.slug,'posts')
-
   return {
     props: {
       source,
@@ -24,13 +24,19 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
+
   }
 }
 
 
 export default function Post({ source, fromMatter}) {
-  console.log(fromMatter)
+  const router = useRouter()
+
+  if(router.isFallback){
+    return <h2>Loading...</h2>
+  }
+
   return (
     <Container>
       <MDXRemote {...source} components={MDXComponents}/>
