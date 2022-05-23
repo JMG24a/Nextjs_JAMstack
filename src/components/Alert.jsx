@@ -8,7 +8,7 @@ function Alert({text, setAlert}) {
         value: false,
         text: ''
       })
-    },10000)
+    },8000)
   })
 
   return (
