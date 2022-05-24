@@ -1,7 +1,7 @@
 import { AiFillFolder } from "react-icons/ai";
 import styled from 'styled-components';
 import { FiMenu } from 'react-icons/fi';
-import { contraction } from './animations'
+import { contraction, hidden } from './animations'
 import Link from "next/link";
 
 export const Page = styled.div`
@@ -19,6 +19,7 @@ const cover = 'https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/ins
 export const Aside = styled.div`
   position: relative;
   width: 100%;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +30,7 @@ export const Aside = styled.div`
   @media (min-width: 768px) {
     position: fixed;
     width: 30%;
+    height: auto;
     top: 0px;
     bottom: 0px;
   }
@@ -65,7 +67,7 @@ export const CardTitle = styled.p`
   width: 70%;
   text-align: center;
   margin: 20px auto;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: bolder;
   color: white;
   @media (min-width: 768px) {
@@ -77,8 +79,8 @@ export const CardLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border: solid 1px gray;
   background-image: url(${g});
   background-repeat: no-repeat;
@@ -93,31 +95,46 @@ export const CardLogo = styled.div`
   }
 `
 export const Ul = styled.ul`
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  list-style: none;
+  margin: 10px auto;
+  padding: 0px;
+  background-color: purple;
   @media (min-width: 768px) {
     position: relative;
     display: flex;
+    align-items: initial;
     flex-direction: column;
     width: 70%;
     margin: 40px auto 10px;
     padding: 0px;
-    list-style: none;
     font-size: 2.0rem;
-    font-weight: bolder;
     color: white;
     cursor: pointer;
   }
 `
 export const Li = styled.li`
-  border-bottom: dashed 1px #c4c4c4;
+  font-weight: bolder;
+  margin: 0px 10px;
   padding: 10px 0;
-  &:nth-child(1){
-    border-top: dashed 1px #c4c4c4;
+  @media (min-width: 768px) {
+    &:nth-child(1){
+      border-top: dashed 1px #c4c4c4;
+      border-bottom: dashed 1px #c4c4c4;
+    }
   }
+
 `
 export const A = styled.a`
   &[aria-current] {
     color: gray;
+    animation-name: ${hidden};
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
   }
 `
 
