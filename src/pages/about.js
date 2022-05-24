@@ -7,7 +7,7 @@ export default function About() {
     <>
       <H2>Sobre mi: </H2>
       <div style={{margin: '-20px auto 0px', width: '80%'}}>
-        <Image src={cv}/>
+        <Image src={cv} alt='cv'/>
       </div>
     </>
   )
