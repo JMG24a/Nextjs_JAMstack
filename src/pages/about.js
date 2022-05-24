@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { H2 } from "../styles/components/contact"
-import cv from '../../public/images/cv.png';
+const cv = require('../../public/images/cv.png');
 
 export default function About() {
   return (
