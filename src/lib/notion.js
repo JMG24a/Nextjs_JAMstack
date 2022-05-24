@@ -1,8 +1,9 @@
 import {Client} from '@notionhq/client';
 
+
 export const getNotionPage = async (id) => {
+  const notion = new Client({auth: process.env.NOTION_API})
   try{
-    const notion = new Client({auth: process.env.NOTION_API})
     const block = await notion.blocks.children.list({
       block_id: id,
       page_size: 50,
@@ -51,8 +52,48 @@ export const getNotionPage = async (id) => {
 
     return notionResult
   }
-  catch(error){ console.log('LOssG:')
+  catch(error){
     console.error(error)
     return null
+  }
+}
+
+export const createEmailNotion = async(data) => {
+  const notion = new Client({auth: process.env.NOTION_API})
+  const {subject, email, body} = data;
+  const DId = process.env.NOTION_DATABASE_ID
+  try{
+    await notion.pages.create({
+      parent:{
+        database_id: DId
+      },
+      properties:{
+        Subject: {
+          title: [
+            {
+              text: {
+                content: subject,
+              },
+            },
+          ],
+        },
+        Email: {
+          email: email,
+        },
+        Body: {
+          rich_text: [
+            {
+              text: {
+                content: body,
+              },
+            },
+          ],
+        }
+      }
+    })
+    return true
+  }
+  catch(e){
+    console.error(e)
   }
 }
