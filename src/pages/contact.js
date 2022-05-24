@@ -17,7 +17,7 @@ export default function Contact() {
       body: formRef.current.body.value,
     }
 
-    fetch(`${process.env.NEXT_API}/api/email`,{
+    fetch(`api/email`,{
     method: 'POST',
     headers: {
       'content' : 'application/json'
