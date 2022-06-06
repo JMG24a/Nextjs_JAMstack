@@ -29,6 +29,7 @@ export const getFileBySlug = async ( slug, direction ) => {
 }
 
 export const createPageSlug = async (slug, id, password, direction) => {
+
   const PP = process.env.PASSWORD;
   if(password !== PP) {
     return false

@@ -1,8 +1,6 @@
 import { AiFillFolder } from "react-icons/ai";
 import styled from 'styled-components';
-import { FiMenu } from 'react-icons/fi';
 import { contraction, hidden } from './animations'
-import Link from "next/link";
 
 export const Page = styled.div`
   width: 100%;
@@ -66,7 +64,7 @@ export const Card = styled.div`
 export const CardTitle = styled.p`
   width: 70%;
   text-align: center;
-  margin: 20px auto;
+  margin: 10px auto 15px;
   font-size: 2.2rem;
   font-weight: bolder;
   color: white;
@@ -88,7 +86,7 @@ export const CardLogo = styled.div`
   background-position: center;
   border-radius: 100%;
   margin: 0 auto 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   @media (min-width: 768px) {
     width: 150px;
     height: 150px;
@@ -111,6 +109,7 @@ export const Ul = styled.ul`
     flex-direction: column;
     width: 70%;
     margin: 40px auto 10px;
+    background-color: transparent;
     padding: 0px;
     font-size: 2.0rem;
     color: white;
@@ -126,6 +125,7 @@ export const Li = styled.li`
       border-top: dashed 1px #c4c4c4;
       border-bottom: dashed 1px #c4c4c4;
     }
+    border-bottom: dashed 1px #c4c4c4;
   }
 
 `
